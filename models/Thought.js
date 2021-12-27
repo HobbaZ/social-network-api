@@ -6,7 +6,7 @@ const thoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
-      max_length: 250,
+      max_length: 280,
       min_length: 1,
     },
 
@@ -19,6 +19,7 @@ const thoughtSchema = new Schema(
         type: String,
         required: true,
       },
+
     reactions: [
       {
         type: Schema.Types.ObjectId,
@@ -31,16 +32,40 @@ const thoughtSchema = new Schema(
       virtuals: true,
     },
     id: false,
-  }
-);
+  });
 
 //Create reactionCount virtual
 thoughtSchema
   .virtual('reactionCount')
-  // Getter
   .get(function () {
     return `${this.reactions.length}`;
-  })
+  });
+
+// Schema to create a reaction subdocument
+const reactionSchema = new Schema(
+  {
+
+    reactionId: {
+      type: String,
+      default: ObjectId,
+    },
+
+    reactionBody: {
+      type: String,
+      required: true,
+      max_length: 280,
+      min_length: 1,
+    },
+
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+    },
+    username: {
+        type: String,
+        required: true,
+      },
+  });
 
 const Thought = model('thought', thoughtSchema);
 
