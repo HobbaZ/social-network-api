@@ -17,10 +17,10 @@ router.route('/').post(createUser);
 router.route('/:userId').get(getaUser);
 
 //Delete a user
-router.route('/:userId').delete(getaUser);
+router.route('/:userId').delete(deleteUser);
 
 //Update a user
-router.route('/:userId').put(getaUser);
+router.route('/:userId').put(updateUser);
 
 //Add friend to user friend list
 router.route('/:userId/friends/:friendId').post(getaUser);

@@ -17,15 +17,15 @@ router.route('/').get(getThoughts)
 router.route('/:thoughtId').get(getaThought);
 
 //Delete a thought
-router.route('/:thoughtId').delete(getaThought);
+router.route('/:thoughtId').delete(deleteThought);
 
 //Update a thought
-router.route('/:thoughtId').put(getaThought);
+router.route('/:thoughtId').put(updateThought);
 
 //Add reaction to thought
-router.route('/:thoughtId/reactions').post(getaUser);
+router.route('/:thoughtId/reactions').post(getaThought);
 
 //Delete reaction from thought
-router.route('/:thoughtId/reactions').delete(getaUser);
+router.route('/:thoughtId/reactions').delete(getaThought);
 
 module.exports = router;

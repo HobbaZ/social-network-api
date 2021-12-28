@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const { Schema, model } = require('mongoose');
 
 // Schema to create a course model
@@ -46,8 +47,8 @@ const reactionSchema = new Schema(
   {
 
     reactionId: {
-      type: String,
-      default: ObjectId,
+      type: ObjectId,
+      default: ObjectId(),
     },
 
     reactionBody: {

@@ -1,0 +1,26 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/) ![License](https://img.shields.io/badge/Made%20with-Markdown-darkgreen.svg) [![Github Commits](https://img.shields.io/github/commit-activity/w/HobbaZ/social-network-api)](https://github.com/HobbaZ/social-network-api/commits) [![GitHub latest commit](https://img.shields.io/github/last-commit/HobbaZ/social-network-api)](https://github.com/HobbaZ/social-network-api/branches) [![GitHub followers](https://img.shields.io/github/followers/HobbaZ.svg)]() ![GitHub repo size](https://img.shields.io/github/repo-size/HobbaZ/social-network-api) [![GitHub issues](https://img.shields.io/github/issues/HobbaZ/social-network-api)](https://img.shields.io/github/issues/HobbaZ/social-network-api) ![GitHub forks](https://img.shields.io/github/forks/HobbaZ/social-network-api) ![GitHub language count](https://img.shields.io/github/languages/count/HobbaZ/social-network-api)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HobbaZ/social-network-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HobbaZ/social-network-api/issues"
+  },
+  "homepage": "https://github.com/HobbaZ/social-network-api#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  }
+}
