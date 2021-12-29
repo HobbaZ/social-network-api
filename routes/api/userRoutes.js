@@ -8,10 +8,7 @@ const {
 } = require('../../controllers/userController.js');
 
 //Get all users
-router.route('/').get(getUsers)
-
-//Create a user
-router.route('/').post(createUser);
+router.route('/').get(getUsers).post(createUser);
 
 //Get a single user
 router.route('/:userId').get(getaUser);

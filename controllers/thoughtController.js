@@ -1,4 +1,6 @@
+const { populate } = require('../models/Thought');
 const Thought = require('../models/Thought');
+const User = require('../models/User');
 
 module.exports = {
   // Get all Thoughts
@@ -22,13 +24,21 @@ module.exports = {
   // create a new Thought
   createThought(req, res) {
     Thought.create(req.body)
+    .then((_id) => {
+      return Thought.findOneAndUpdate(
+        { _id: req.body.userId },
+        { $push: { thoughts: _id } },
+        { new: true }
+      );
+    })
       .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
 
-  // Delete a Thought and associated apps
+  // Delete a Thought and associated reactions
   deleteThought(req, res) {
-    Thought.findOneAndDelete({ _id: req.params.thoughtId })
+    Thought.findOneAndDelete(
+      { _id: req.params.thoughtId })
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with that ID' })

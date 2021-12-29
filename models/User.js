@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Thought');
 
 // Schema to create a course model
 const userSchema = new Schema(
@@ -21,20 +20,21 @@ const userSchema = new Schema(
       friends: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'user',
+          ref: 'User',
         },
       ],
 
       thoughts: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'thought',
+          ref: 'Thought',
         },
       ],
     },
     {
       toJSON: {
         virtuals: true,
+        getters: true,
       },
       id: false,
     }
