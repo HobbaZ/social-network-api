@@ -7,14 +7,15 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-        //trimmed
+        trim: true,
       },
 
       email: {
         type: String,
         required: true,
         unique: true,
-        //trimmed
+        trim: true,
+        match: [/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'A valid email address is required']
       },
 
       friends: [

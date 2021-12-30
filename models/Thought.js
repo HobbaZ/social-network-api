@@ -1,5 +1,10 @@
 const { Schema, model, Types } = require('mongoose');
 
+function convertDate(createdAt) {
+  today = new Date(createdAt)
+  return today.toDateString();
+}
+
 // Schema to create a reaction subdocument
 const reactionSchema = new Schema(
   {
@@ -18,7 +23,8 @@ const reactionSchema = new Schema(
 
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
+      get: convertDate,
     },
     username: {
         type: String,
@@ -45,6 +51,8 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
+      get: convertDate,
+
       //need to add getter method to format date
     },
     username: {
