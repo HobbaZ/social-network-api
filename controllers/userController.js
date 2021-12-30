@@ -1,10 +1,11 @@
 const User = require('../models/User');
+const Thought = require('../models/Thought');
 
 module.exports = {
   // Get all users
   getUsers(req, res) {
     User.find()
-      .then((users) => res.json(users))
+      .then((users) => res.status(200).json({ message: 'Getting all users...', users}))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -15,7 +16,7 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
-          : res.json(user)
+          : res.status(200).json({ message: 'Found user...', user })
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -23,19 +24,25 @@ module.exports = {
   // create a new user
   createUser(req, res) {
     User.create(req.body)
-      .then((user) => res.json(user))
+      .then((user) => res.status(200).json({ message: 'Creating user', user}))
       .catch((err) => res.status(500).json(err));
   },
 
   // Delete a user and associated thoughts
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId })
-      .then((user) =>
+    User.findOneAndRemove({ _id: req.params.userId })
+      /*.then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
-          : Application.deleteMany({ _id: { $in: user.applications } })
-      )
-      .then(() => res.json({ message: 'User and associated thoughts deleted!' }))
+          //: res.status(200).json({ message: 'User deleted', user})
+      //)
+          : User.findOneAndUpdate(
+            { _id: req.body.userId },
+            { $pull: { thoughts: _Id } },
+            { new: true }
+          )
+        )*/
+      .then((user) => res.status(200).json({ message: 'user deleted', user}))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -49,8 +56,14 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that id!' })
-          : res.json(user)
+          : res.status(200).json({ message: 'User updated', user})
       )
       .catch((err) => res.status(500).json(err));
   },
+
+  //Add friend to user
+
+
+  //Delete friend from user
+
 };

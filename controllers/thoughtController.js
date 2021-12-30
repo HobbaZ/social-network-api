@@ -24,20 +24,24 @@ module.exports = {
   // create a new Thought
   createThought(req, res) {
     Thought.create(req.body)
-    .then((_id) => {
-      return Thought.findOneAndUpdate(
-        { _id: req.body.userId },
+    /*.then((_id) => {
+      return User.findOneAndUpdate(
+        { username: req.body.userId }, 
         { $push: { thoughts: _id } },
         { new: true }
       );
-    })
+    })*/
+      //.then((thought) => 
+      //!thought
+          ? res.status(404).json({ message: 'No thought with that ID' })
+          : res.status(200).json({ message: 'Thought created', thought})
       .then((thought) => res.status(200).json({ message: 'Thought created', thought}))
       .catch((err) => res.status(500).json(err));
   },
 
   // Delete a Thought and associated reactions
   deleteThought(req, res) {
-    Thought.findOneAndDelete(
+    Thought.findOneAndRemove(
       { _id: req.params.thoughtId })
       .then((thought) =>
         !thought
@@ -61,4 +65,34 @@ module.exports = {
           )
       .catch((err) => res.status(500).json(err));
   },
+
+  //Add reaction to thought
+  addReaction(req, res) {
+      Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body } },
+        { runValidators: true, new: true }
+      )
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: 'No thought with that id!' })
+          : res.status(200).json({ message: 'Reaction created', thought})
+          )
+      .catch((err) => res.status(500).json(err));
+  },
+
+  //Delete reaction from thought
+  deleteReaction(req, res) {
+    Thought.findOneAndRemove(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: req.body } },
+      { runValidators: true, new: true }
+    )
+    .then((thought) =>
+      !thought
+        ? res.status(404).json({ message: 'No thought with that id!' })
+        : res.status(200).json({ message: 'Reaction deleted', thought})
+        )
+    .catch((err) => res.status(500).json(err));
+},
 };
