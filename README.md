@@ -68,6 +68,7 @@ Github, VS Code, Gitbash, Insonmia
 You can also contribute by opening a pull request or submitting an issue
 
 ## Acknowledgements
+[Date formatting with JS](https://www.freecodecamp.org/news/javascript-date-now-how-to-get-the-current-date-in-javascript/)
 
 ## Testing
 No tests created
