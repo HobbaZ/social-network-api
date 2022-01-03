@@ -69,6 +69,7 @@ You can also contribute by opening a pull request or submitting an issue
 
 ## Acknowledgements
 [Date formatting with JS](https://www.freecodecamp.org/news/javascript-date-now-how-to-get-the-current-date-in-javascript/)
+[Deleting document references](https://stackoverflow.com/questions/58200304/mongoose-deleting-document-references)
 
 ## Testing
 No tests created
