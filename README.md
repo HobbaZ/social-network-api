@@ -11,7 +11,7 @@
 
 ## Description
 ### Project Aim ###
-Finish creating social network API endpoints and demonstrate CRUD functionality in Insomnia.
+Create social network API endpoints and demonstrate CRUD functionality in Insomnia.
 
 ### What I Learnt ###
 Use of Mongoose npm package, linking Mongoose to Express.js, 
