@@ -48,13 +48,13 @@ SO THAT my website can handle large amounts of unstructured data
 
 ## Installation
 1. Clone the repo to your computer by clicking the green code button and copying the SSH version.
-2. Open Gitbash in your desired folder and type
-```
-git clone 
-``` 
-then right click to paste the string and hit enter. The repo will then be cloned to your computer.
+
+2. Open Gitbash in your desired folder and type ```git clone ``` then right click to paste the string and hit enter. The repo will then be cloned to your computer.
+
 3. Navigate to the repo folder and type ```code .``` into gitbash to open the repo in VS Code.
+
 4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
+
 5. Finally, type ```npm start``` into the terminal and start Insomnia.
 
 ## Features
