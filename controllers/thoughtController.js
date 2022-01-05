@@ -42,7 +42,7 @@ module.exports = {
 
   // Delete a Thought
   deleteThought(req, res) {
-    Thought.findOneAndRemove({ _id: req.params.thoughtId })
+    Thought.findOneAndDelete({ _id: req.params.thoughtId })
       .then((removeThought) => 
         ! removeThought
         ? res.status(404).json({ message: 'No thought with that ID' })
@@ -79,10 +79,10 @@ module.exports = {
   //Add reaction to thought
   addReaction(req, res) {
       Thought.findOneAndUpdate(
-        //add reactions to thought
+        //add reaction to thought
         { _id: req.params.thoughtId },
         { $push: { reactions: req.body } },
-        { runValidators: true, new: true }
+        { new: true }
       )
       .then((thought) =>
         !thought
@@ -94,17 +94,16 @@ module.exports = {
 
   //Delete reaction from thought
   deleteReaction(req, res) {
-      Thought.findOneAndUpdate({ _id: req.params.thoughtId },
-          { _id: req.body.reactionId },
-          { $pull: { reactions: { reactionId: _id } } },
+      Thought.findOneAndUpdate( 
+          { _id: req.params.thoughtId },
+          { $pull: { reactions: { reactionId: req.params.reactionId } } },
           { new: true }
     )
     .then((thought) =>
       !thought
         ? res.status(404).json({ message: 'No thought with that id!' })
-        : res.status(200).json({ message: 'Reaction deleted', thought})
+        : res.status(200).json({ message: `Reaction deleted!`, thought})
         )
     .catch((err) => res.status(500).json({message: 'Error deleting reaction from thought', err}));
 },
-
 };

@@ -20,7 +20,7 @@ Create social network API endpoints and demonstrate use in Insomnia.
 Use of Mongoose package, linking Mongoose to Express.js
 
 ## Deployment
-Video walkthrough link here. 
+Video walkthrough link [here](https://youtu.be/bUxzn6Qi3Nw). 
 
 
 ## Table of Contents
@@ -44,18 +44,20 @@ SO THAT my website can handle large amounts of unstructured data
 ```
 
 ## Screenshots
-![Example of users endpoint](./assets\images\18-nosql-homework-demo-01.gif)
-![Example of thoughts endpoint](./assets\images\18-nosql-homework-demo-02.gif)
-![Example of single user endpoint](./assets\images\18-nosql-homework-demo-03.gif)
-![Example of friend endpoint](./assets\images\18-nosql-homework-demo-04.gif)
+![Example of users endpoint](./assets/images/18-nosql-homework-demo-01.gif)
+![Example of thoughts endpoint](./assets/images/18-nosql-homework-demo-02.gif)
+![Example of single user endpoint](./assets/images/18-nosql-homework-demo-03.gif)
+![Example of friend endpoint](./assets/images/18-nosql-homework-demo-04.gif)
 
 ## Installation
 You will need: 
 Github, VS Code, Gitbash, Insonmia
 
-
-
 ## Features
+- Routes for creating, editing and deleting users
+- Routes for creating, editing and deleting thoughts
+- Routes for adding and removing friends
+- Routes for adding and removing reactions
 
 ## Technology
 - Express.js
