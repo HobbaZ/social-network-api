@@ -11,13 +11,10 @@
 
 ## Description
 ### Project Aim ###
-Create social network API endpoints and demonstrate use in Insomnia.
-
-### What Problem Does It Solve ###
-
+Finish creating social network API endpoints and demonstrate CRUD functionality in Insomnia.
 
 ### What I Learnt ###
-Use of Mongoose package, linking Mongoose to Express.js
+Use of Mongoose npm package, linking Mongoose to Express.js, 
 
 ## Deployment
 Video walkthrough link [here](https://youtu.be/bUxzn6Qi3Nw). 
@@ -50,8 +47,15 @@ SO THAT my website can handle large amounts of unstructured data
 ![Example of friend endpoint](./assets/images/18-nosql-homework-demo-04.gif)
 
 ## Installation
-You will need: 
-Github, VS Code, Gitbash, Insonmia
+1. Clone the repo to your computer by clicking the green code button and copying the SSH version.
+2. Open Gitbash in your desired folder and type
+```
+git clone 
+``` 
+then right click to paste the string and hit enter. The repo will then be cloned to your computer.
+3. Navigate to the repo folder and type ```code .``` into gitbash to open the repo in VS Code.
+4. Open a new Terminal in VS Code and type ```npm install``` to install the repo dependencies.
+5. Finally, type ```npm start``` into the terminal and start Insomnia.
 
 ## Features
 - Routes for creating, editing and deleting users
